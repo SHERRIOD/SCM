@@ -1,0 +1,8 @@
+".\Objects\delay.obj",
+".\Objects\keyboard.obj",
+".\Objects\main.obj",
+".\Objects\nixie.obj",
+".\Objects\timer.obj",
+".\Objects\ds18b20.obj" 
+TO ".\Objects\lab4" 
+PRINT(".\Listings\lab4.m51") RAMSIZE(256) 

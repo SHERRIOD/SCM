@@ -1,0 +1,53 @@
+C51 COMPILER V9.60.7.0   NIXIE                                                             11/13/2023 21:03:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE NIXIE
+OBJECT MODULE PLACED IN .\Objects\nixie.obj
+COMPILER INVOKED BY: D:\c51\C51\BIN\C51.EXE Nixie\nixie.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Delay;.\Keyboard;.\Nixie;.\T
+                    -imer;.\Ds18b20) DEBUG OBJECTEXTEND PRINT(.\Listings\nixie.lst) TABS(2) OBJECT(.\Objects\nixie.obj)
+
+line level    source
+
+   1          #include"nixie.h"
+   2          #include"delay.h"
+   3          
+   4          #include<regx52.h>
+   5          
+   6          unsigned char num[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x58,0x5e,0x79,0x71,0x00}
+             -;
+   7          
+   8          void NixieDisplay(unsigned char d[]){
+*** WARNING C235 IN LINE 8 OF Nixie\nixie.c: parameter 1: different types
+   9   1        char mask;
+  10   1        int i;
+  11   1        mask=3;
+  12   1        for(i=0;i<4;i++){
+  13   2          P3&=0x8f;
+  14   2          P0=num[d[i]];
+  15   2          P3|=(mask<<4);
+  16   2          Delay(3);
+  17   2          mask--;
+  18   2        }
+  19   1        mask=7;
+  20   1        for(i=4;i<8;i++){
+  21   2          P3&=0x8f;
+  22   2          P0=num[d[i]];
+  23   2          P3|=(mask<<4);
+  24   2          Delay(3);
+  25   2          mask--;
+  26   2        }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     17       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

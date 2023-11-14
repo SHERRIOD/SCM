@@ -1,0 +1,59 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              11/13/2023 21:03:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\c51\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Delay;.\Keyboard;.\Nixie;.\Timer;.\
+                    -Ds18b20) DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #define DEBUG 1
+   2          
+   3          #include"delay.h"
+   4          #include"keyboard.h"
+   5          #include"nixie.h"
+   6          #include"timer.h"
+   7          #include"ds18b20.h"
+   8          
+   9          #include<regx52.h>
+  10          
+  11          void main(){
+  12   1        int k;
+  13   1        InitTimer0();
+  14   1        
+  15   1        while(1){
+  16   2          key=GetKey();
+  17   2              switch(state){
+  18   3                  case INIT: InitState();break;
+  19   3                  case PREPARE1: PrepareState1();break;
+  20   3                  case PREPARE2: PrepareState2();break;
+  21   3                  case PREPARE3: PrepareState3();break;
+  22   3                  case PREPAREWELL: PrepareWell();break;
+  23   3                  case CLOCK: ClockState();break;
+  24   3                  case FREEZE: FreezeState();break;
+  25   3              }
+  26   2          k=GetTemp();
+  27   2          nixie_buf[5]=k/100;
+  28   2          nixie_buf[6]=(k%100)/10;
+  29   2          nixie_buf[7]=k%10;
+  30   2          NixieDisplay(nixie_buf);
+*** WARNING C182 IN LINE 30 OF main.c: pointer to different objects
+  31   2          Delay(5);
+  32   2        }
+  33   1        
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    154    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
