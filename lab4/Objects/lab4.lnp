@@ -3,6 +3,7 @@
 ".\Objects\main.obj",
 ".\Objects\nixie.obj",
 ".\Objects\timer.obj",
-".\Objects\ds18b20.obj" 
+".\Objects\ds18b20.obj",
+".\Objects\ch451.obj" 
 TO ".\Objects\lab4" 
 PRINT(".\Listings\lab4.m51") RAMSIZE(256) 

@@ -1,17 +1,18 @@
-#define DEBUG 1
-
 #include"delay.h"
 #include"keyboard.h"
 #include"nixie.h"
 #include"timer.h"
 #include"ds18b20.h"
+#include"ch451.h"
 
-#include<regx52.h>
+#include<reg51.h>
 
 void main(){
 	int k;
 	InitTimer0();
-	
+	ch451_init();
+    ch451_write(0x403);
+    ch451_write(0x500);
 	while(1){
 		key=GetKey();
         switch(state){

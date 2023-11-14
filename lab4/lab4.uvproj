@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Delay;.\Keyboard;.\Nixie;.\Timer;.\Ds18b20</IncludePath>
+              <IncludePath>.\Delay;.\Keyboard;.\Nixie;.\Timer;.\Ds18b20;.\Ch451</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -430,6 +430,16 @@
               <FileName>ds18b20.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Ds18b20\ds18b20.h</FilePath>
+            </File>
+            <File>
+              <FileName>ch451.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Ch451\ch451.h</FilePath>
+            </File>
+            <File>
+              <FileName>ch451.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Ch451\ch451.c</FilePath>
             </File>
           </Files>
         </Group>
